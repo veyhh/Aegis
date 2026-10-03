@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64"><Configuration>Debug</Configuration><Platform>x64</Platform></ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D50B2562-779B-4E9A-AC5A-A8F2A9E81851}</ProjectGuid>
+    <RootNamespace>AegisPushLockTest</RootNamespace>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
+    <DriverType>WDM</DriverType>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <TargetVersion>Windows10</TargetVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <TargetName>aegis_pushlock_test</TargetName>
+    <OutDir>$(MSBuildThisFileDirectory)..\..\artifacts\driver\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildThisFileDirectory)..\..\build\driver\$(Platform)\$(Configuration)\</IntDir>
+    <SignMode>Off</SignMode>
+    <EnableInf2Cat>false</EnableInf2Cat>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>CompileAsC</CompileAs>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link><AdditionalDependencies>Wdmsec.lib;%(AdditionalDependencies)</AdditionalDependencies></Link>
+  </ItemDefinitionGroup>
+  <ItemGroup><ClCompile Include="aegis_pushlock_test.c" /></ItemGroup>
+  <ItemGroup><ClInclude Include="public.h" /></ItemGroup>
+  <ItemGroup><Inf Include="aegis_pushlock_test.inf" /></ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

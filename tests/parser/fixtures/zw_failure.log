@@ -1,0 +1,3 @@
+0040:err:service:load_driver ZwLoadDriver failed: c0000135
+0040:err:ntoskrnl:ZwLoadDriver failed to create driver aegis_pushlock_test: c0000135
+AEGIS_HARNESS: service start failed (exit=1)

@@ -1,0 +1,17 @@
+build/
+artifacts/
+__pycache__/
+*.py[cod]
+.vs/
+*.user
+*.suo
+*.sys
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.cat
+*.cer
+*.pfx
+reports/*
+!reports/.gitkeep

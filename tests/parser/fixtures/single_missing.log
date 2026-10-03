@@ -1,0 +1,2 @@
+0040:trace:ntoskrnl:DbgPrint AEGIS: driver_init_reached=true
+0040:err:module:import_dll No implementation for ntoskrnl.exe.ExInitializePushLock imported from L"C:\windows\system32\drivers\aegis_pushlock_test.sys"

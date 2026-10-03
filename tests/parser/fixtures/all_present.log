@@ -1,0 +1,5 @@
+0040:trace:module:load_dll Loaded L"C:\windows\system32\drivers\aegis_pushlock_test.sys" at 0000000140000000: native
+0040:trace:ntoskrnl:DbgPrint AEGIS: driver_init_reached=true
+0040:trace:ntoskrnl:DbgPrint AEGIS: device_created=true
+0040:trace:ntoskrnl:DbgPrint AEGIS: driver_loaded=true
+0040:trace:ntoskrnl:init_driver init done for aegis_pushlock_test obj 000123

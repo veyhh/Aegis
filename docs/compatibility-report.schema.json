@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:aegis:compatibility-report:1",
+  "title": "AEGIS Compatibility Report v1",
+  "type": "object",
+  "required": ["schema_version", "test", "driver", "driver_image_loaded", "driver_init_address_found", "driver_init_reached", "loaded", "device_created", "device_opened", "ioctl_success", "required_ntoskrnl", "missing_ntoskrnl", "unimplemented", "client_result", "client_exit_code", "client_fields", "failures", "evidence", "environment", "verification", "scope", "result"],
+  "additionalProperties": false,
+  "$defs": {
+    "stage": {"type": ["boolean", "null"]},
+    "strings": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "properties": {
+    "schema_version": {"const": 1},
+    "test": {"enum": ["PushLock", "RundownProtection", "WorkItems", "PreciseTiming", "CpuIpi"]},
+    "driver": {"type": "string", "minLength": 1},
+    "driver_image_loaded": {"$ref": "#/$defs/stage"},
+    "driver_init_address_found": {"$ref": "#/$defs/stage"},
+    "driver_init_reached": {"$ref": "#/$defs/stage"},
+    "loaded": {"$ref": "#/$defs/stage"},
+    "device_created": {"$ref": "#/$defs/stage"},
+    "device_opened": {"$ref": "#/$defs/stage"},
+    "ioctl_success": {"$ref": "#/$defs/stage"},
+    "required_ntoskrnl": {"$ref": "#/$defs/strings"},
+    "missing_ntoskrnl": {"$ref": "#/$defs/strings"},
+    "unimplemented": {"type": "array", "items": {"type": "object", "required": ["module", "function"], "additionalProperties": false, "properties": {"module": {"type": "string"}, "function": {"type": "string"}}}},
+    "client_result": {"type": ["string", "null"]},
+    "client_exit_code": {"type": ["integer", "null"]},
+    "client_fields": {"type": "object", "additionalProperties": {"type": "string"}},
+    "failures": {"$ref": "#/$defs/strings"},
+    "evidence": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+    "environment": {"type": "object"},
+    "verification": {"enum": ["OBSERVED", "NOT_VERIFIED"]},
+    "scope": {"type": "string"},
+    "result": {"enum": ["PASS", "FAIL"]}
+  }
+}

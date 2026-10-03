@@ -1,0 +1,11 @@
+AEGIS_PUSHLOCK_TEST
+driver_loaded=true
+device_opened=true
+ioctl_success=true
+bytes_returned=20
+version=1
+passed=1
+initial_value=0
+final_value=1
+error_code=0
+result=PASS

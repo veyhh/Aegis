@@ -1,0 +1,4 @@
+garbage \x00 %%?
+DriverInit address unknown
+result=PASS
+unrelated log without AEGIS evidence
